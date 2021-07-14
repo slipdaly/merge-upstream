@@ -14,12 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: slipdaly/lede             # set the branch to merge to
+          ref: git@github.com:slipdaly/lede.git             # set the branch to merge to
           fetch-depth: 0 
       - name: Merge Upstream
         uses: exions/merge-upstream@v1
         with:
-          upstream: coolsnowwolf/lede      # set the upstream repo
+          upstream: git@github.com:coolsnowwolf/lede.git      # set the upstream repo
           upstream-branch: master   # set the upstream branch to merge from
           branch: master          # set the branch to merge to
       - name: Delete workflow runs
