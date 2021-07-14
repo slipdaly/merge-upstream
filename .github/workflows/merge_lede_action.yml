@@ -1,9 +1,12 @@
 name: Scheduled Merge lede Action
 on: 
   schedule:
-    - cron: '0 0 * * 1'
-    # scheduled for 00:00 every Monday
-
+    - cron: '* */2 * * *'
+  watch:
+    types: [started]
+  push:
+    branches: 
+      - master
 jobs:
   merge-upstream:
     runs-on: ubuntu-latest
@@ -19,4 +22,9 @@ jobs:
           upstream: coolsnowwolf/lede      # set the upstream repo
           upstream-branch: master   # set the upstream branch to merge from
           branch: master          # set the branch to merge to
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 2
+          keep_minimum_runs: 10
           
