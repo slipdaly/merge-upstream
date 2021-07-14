@@ -4,9 +4,6 @@ on:
     - cron: '* */2 * * *'
   watch:
     types: [started]
-  push:
-    branches: 
-      - master
 jobs:
   merge-upstream:
     runs-on: ubuntu-latest
