@@ -14,14 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: slipdaly/merge-upstream             # set the branch to merge to
+          ref: slipdaly/lede             # set the branch to merge to
           fetch-depth: 0 
       - name: Merge Upstream
         uses: exions/merge-upstream@v1
         with:
-          upstream: exions/merge-upstream      # set the upstream repo
+          upstream: coolsnowwolf/lede      # set the upstream repo
           upstream-branch: master   # set the upstream branch to merge from
           branch: master          # set the branch to merge to
+          token: ${{ secrets.TOKEN }}
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
