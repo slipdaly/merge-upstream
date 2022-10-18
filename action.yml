@@ -34,6 +34,6 @@ runs:
         git branch --all
         git config --list
         git checkout ${{ inputs.branch }}
-        git merge upstream/${{ inputs.upstream-branch }}
+        git merge --ff-only upstream/${{ inputs.upstream-branch }}
         git push 
       shell: bash
